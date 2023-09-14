@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:webviewwithgetx/controllers/productController.dart';
@@ -20,14 +21,15 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(16),
+            padding:  EdgeInsets.all(16.w),
             child: Row(
               children: [
                 Expanded(
                  child:Text("ShopX",style:TextStyle(
                    fontFamily: "avenir",
-                   fontSize:32,
-                   fontWeight: FontWeight.w900
+                   fontSize:32.sp,
+                   fontWeight: FontWeight.w900,
+                   color:Colors.black
                  ),), 
                 ),
                 IconButton(onPressed: (){}, icon: Icon(Icons.view_list_rounded)),
@@ -47,12 +49,12 @@ class HomePage extends StatelessWidget {
               crossAxisCount: 2,
               itemCount: controller.productList.length,
               
-             crossAxisSpacing:16,
-              mainAxisSpacing:16,
+             crossAxisSpacing:16.w,
+              mainAxisSpacing:16.h,
       
               
              itemBuilder: (context,index){
-               return ProductTile(controller.productList[index]);
+               return ProductTile(controller.productList[index],index);
              },
              staggeredTileBuilder:(index)=>StaggeredTile.fit(1));}))
           
